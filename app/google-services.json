@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "724275919924",
+    "firebase_url": "https://football-player-game-2fa4e-default-rtdb.firebaseio.com",
+    "project_id": "football-player-game-2fa4e",
+    "storage_bucket": "football-player-game-2fa4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724275919924:android:bd7b621862c98257fd5e61",
+        "android_client_info": {
+          "package_name": "com.example.footballplayergame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724275919924-dk78k73kkmjh6db7n6e40tklnh41dgcr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.footballplayergame",
+            "certificate_hash": "e933d1b367997b972786448da3f61123dab72c19"
+          }
+        },
+        {
+          "client_id": "724275919924-jlesano54bk30kpsnng4v572lb48akr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX1IrtBvsIR8N0FwjRWqAyAEjIyKTa5ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724275919924-jlesano54bk30kpsnng4v572lb48akr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
