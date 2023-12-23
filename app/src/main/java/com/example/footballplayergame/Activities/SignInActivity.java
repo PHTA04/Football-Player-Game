@@ -82,6 +82,18 @@ public class SignInActivity extends AppCompatActivity {
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userEmail = binding.userEmail.getText().toString();
+                String password = binding.password.getText().toString();
+
+                if (userEmail.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(SignInActivity.this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
+                    Toast.makeText(SignInActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 dialog.show();
                 auth.signInWithEmailAndPassword(binding.userEmail.getText().toString(), binding.password.getText().toString())

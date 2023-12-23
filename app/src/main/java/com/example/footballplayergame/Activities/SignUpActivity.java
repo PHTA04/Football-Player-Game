@@ -61,6 +61,25 @@ public class SignUpActivity extends AppCompatActivity {
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userName = binding.userName.getText().toString().trim();
+                String userEmail = binding.userEmail.getText().toString();
+                String password = binding.password.getText().toString();
+
+                if (userName.isEmpty() || userEmail.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(SignUpActivity.this, "Please enter all required information", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (userName.replace(" ", "").isEmpty()) {
+                    Toast.makeText(SignUpActivity.this, "Please enter a valid username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
+                    Toast.makeText(SignUpActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 dialog.show();
                 auth.createUserWithEmailAndPassword(binding.userEmail.getText().toString(), binding.password.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -77,8 +96,12 @@ public class SignUpActivity extends AppCompatActivity {
 
                                     database.getReference().child("users").child(id).setValue(map);
 
-                                    Toast.makeText(SignUpActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                                    Intent signInIntent = new Intent(SignUpActivity.this, SignInActivity.class);
+                                    startActivity(signInIntent);
                                     finish();
+
+                                    auth.signOut();
+                                    Toast.makeText(SignUpActivity.this, "Account created successfully. Please log in.", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Toast.makeText(SignUpActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
