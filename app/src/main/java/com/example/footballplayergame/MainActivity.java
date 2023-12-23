@@ -3,6 +3,7 @@ package com.example.footballplayergame;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         // Mở SignInActivity sau khi đã đăng xuất
                         Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                         startActivity(intent);
+                        Toast.makeText(MainActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

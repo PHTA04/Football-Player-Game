@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -95,12 +96,10 @@ public class UserManual extends AppCompatActivity {
         autoUpdateHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Cập nhật tab tương ứng với CardView hiện tại
                 indicator.getTabAt(viewFlipper.getDisplayedChild()).select();
-                // Tiếp tục đặt lịch trình cập nhật sau 3 giây nữa
-                autoUpdateHandler.postDelayed(this, 1000);
+                autoUpdateHandler.postDelayed(this, 300);
             }
-        }, 1000);
+        }, 300);
 
 
         binding.home.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +131,7 @@ public class UserManual extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         Intent intent = new Intent(UserManual.this, SignInActivity.class);
                         startActivity(intent);
+                        Toast.makeText(UserManual.this, "Logout successful", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
